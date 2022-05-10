@@ -1,4 +1,3 @@
-
 using CompleteExample.Entities;
 using CompleteExample.Logic;
 using Microsoft.AspNetCore.Builder;
@@ -43,6 +42,9 @@ namespace CompleteExample.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "School", Version = "v1" });
             });
+
+            //Setting up Dependency Injection resolvers
+            services.AddScoped<IInstructorLogic, InstructorLogic>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
