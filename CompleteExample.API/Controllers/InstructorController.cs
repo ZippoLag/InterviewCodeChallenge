@@ -1,4 +1,4 @@
-﻿using CompleteExample.Entities;
+﻿using CompleteExample.Entities.DTOs;
 using CompleteExample.Logic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,10 +20,11 @@ namespace CompleteExample.API.Controllers
             _instructorLogic = instructorLogic;
         }
 
-        [HttpGet("{instructorId}/enrollments")]
+        //GET instructor/20/given-grades
+        [HttpGet("{instructorId}/given-grades")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<IEnumerable<Enrollment>> GetGivenStudentGrades(int instructorId)
+        public ActionResult<IEnumerable<GradeDTO>> GetGivenStudentGrades(int instructorId)
         {
             return _instructorLogic.GetGivenStudentGrades(instructorId).ToArray();
         }

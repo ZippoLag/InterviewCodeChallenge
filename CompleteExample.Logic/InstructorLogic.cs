@@ -1,4 +1,5 @@
 ﻿using CompleteExample.Entities;
+using CompleteExample.Entities.DTOs;
 using System.Linq;
 using System;
 using System.Collections.Generic;
@@ -20,14 +21,23 @@ namespace CompleteExample.Logic
         /// </summary>
         /// <param name="instructorId"></param>
         /// <returns>All Enrollments assigned to all Courses taught by an Instructor with Id instructorId</returns>
-        public IQueryable<Enrollment> GetGivenStudentGrades(int instructorId)
+        public IQueryable<GradeDTO> GetGivenStudentGrades(int instructorId)
         {
-            var courseIds = _context.Courses
-                .Where(c => c.InstructorId == instructorId)
-                .Select(c => c.CourseId);
+            var courses = _context.Courses
+                .Where(c => c.InstructorId == instructorId);
 
-            var grades = _context.Enrollment
-                .Where(e => courseIds.Contains(e.CourseId));
+            var grades = from e in _context.Enrollment
+                         join c in courses 
+                            on e.CourseId equals c.CourseId
+                         join s in _context.Students 
+                            on e.StudentId equals s.StudentId
+                         select new GradeDTO() { 
+                             CourseId = c.CourseId, 
+                             Course = c.Title, 
+                             StudentId = s.StudentId, 
+                             Student = $"{s.LastName}, {s.FirstName}",
+                             Grade = e.Grade
+                         };
 
             return grades;
 
