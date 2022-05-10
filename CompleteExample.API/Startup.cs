@@ -1,3 +1,4 @@
+
 using CompleteExample.Entities;
 using CompleteExample.Logic;
 using Microsoft.AspNetCore.Builder;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +37,12 @@ namespace CompleteExample.API
             //Setting up DataBase access
             services.AddDbContext<CompleteExampleDBContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("LocalDevelopmentContext")));
+
+            //Setting up Swagger to ease API endpoint testing
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "School", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +51,9 @@ namespace CompleteExample.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "School v1"));
             }
 
             app.UseHttpsRedirection();

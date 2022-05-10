@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CompleteExample.Logic\CompleteExample.Logic.csproj" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\CompleteExample.Logic\CompleteExample.Logic.csproj" />
   </ItemGroup>
 
 

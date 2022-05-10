@@ -33,6 +33,7 @@ I've also foregone the need for Interfaces where they weren't crucial. I will se
 
 ## Changelog (reverse order)
 
+- Installed Swagger for ease of testing
 - Added new deafault connection string so we can work with windows authentication on localhost
 - Added this file, analyzed the given skeleton and planned-out what needs to be fleshed-out enough to get started
 - Installed SQL Server 2016 and tools (already had VS 2019 with .Net Core 3.1)
