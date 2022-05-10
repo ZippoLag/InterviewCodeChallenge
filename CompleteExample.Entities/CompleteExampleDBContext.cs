@@ -14,13 +14,13 @@ namespace CompleteExample.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             modelBuilder.Entity<Student>()
                 .ToTable("Students", schema: "dbo");
 
             modelBuilder.Entity<Course>()
                 .ToTable("Courses", schema: "dbo");
 
+            //TODO: refactor into "Enrollments"
             modelBuilder.Entity<Enrollment>()
                 .ToTable("Enrollment", schema: "dbo");
 

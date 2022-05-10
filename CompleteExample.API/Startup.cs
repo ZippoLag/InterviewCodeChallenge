@@ -1,4 +1,5 @@
 using CompleteExample.Entities;
+using CompleteExample.Logic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,10 +29,12 @@ namespace CompleteExample.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Setting up controllers
             services.AddControllers();
 
+            //Setting up DataBase access
             services.AddDbContext<CompleteExampleDBContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("SchoolContext")));
+                options.UseSqlServer(Configuration.GetConnectionString("LocalDevelopmentContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
