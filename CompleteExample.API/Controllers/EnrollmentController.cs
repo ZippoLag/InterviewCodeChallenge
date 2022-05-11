@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CompleteExample.API.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/enrollments")]
     [ApiController]
     public class EnrollmentController : ControllerBase
     {
@@ -20,6 +20,7 @@ namespace CompleteExample.API.Controllers
             _enrollmentLogic = enrollmentLogic;
         }
 
+        //POST api/enrollments
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -36,6 +37,7 @@ namespace CompleteExample.API.Controllers
             return CreatedAtAction(nameof(ReadEnrollment), new { enrollmentId = newEnrollment.EnrollmentId }, newEnrollment);
         }
 
+        //GET api/enrollments/1
         [HttpGet("{enrollmentId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace CompleteExample.API.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/students")]
     [ApiController]
     public class StudentController : ControllerBase
     {
@@ -18,8 +18,8 @@ namespace CompleteExample.API.Controllers
             _studentLogic = studentLogic;
         }
 
-        //GET students/top-students/3
-        [HttpGet("/top-students/{podiumSize?}")]
+        //GET api/students/top-students/3
+        [HttpGet("top-students/{podiumSize?}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<GradeDTO>> GetTopStudentsForAllCourses(int podiumSize = 3)
         {

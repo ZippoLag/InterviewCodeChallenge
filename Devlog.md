@@ -42,6 +42,7 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 
 ## Changelog (reverse order)
 
+- Improved API URIs
 - Modified Enrollment entity to accept null Grades to match with DB schema
 - Implemented Read Enrollment
 - Implemented Create Enrollment

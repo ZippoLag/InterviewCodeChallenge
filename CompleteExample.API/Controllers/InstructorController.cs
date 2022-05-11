@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CompleteExample.API.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/instructors")]
     [ApiController]
     public class InstructorController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace CompleteExample.API.Controllers
             _instructorLogic = instructorLogic;
         }
 
-        //GET instructor/20/given-grades
+        //GET api/instructors/20/given-grades
         [HttpGet("{instructorId}/given-grades")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
