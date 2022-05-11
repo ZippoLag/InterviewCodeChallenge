@@ -1,9 +1,7 @@
 ﻿using CompleteExample.Entities;
 using CompleteExample.Entities.DTOs;
 using System.Linq;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CompleteExample.Logic
 {
@@ -17,10 +15,10 @@ namespace CompleteExample.Logic
         }
 
         /// <summary>
-        /// "Grades" are stored in Enrollment entities. There's a future requirement to have multiple grades per enrollment, but we'll cross that bridge when we get to it.
+        /// 
         /// </summary>
         /// <param name="instructorId"></param>
-        /// <returns>All Enrollments assigned to all Courses taught by an Instructor with Id instructorId</returns>
+        /// <returns>An IQueryable with the all the Grades given by an Instructor to all Students in all of their Courses</returns>
         public IQueryable<GradeDTO> GetGivenStudentGrades(int instructorId)
         {
             var courses = _context.Courses
@@ -40,7 +38,6 @@ namespace CompleteExample.Logic
                          };
 
             return grades;
-
         }
     }
 }
