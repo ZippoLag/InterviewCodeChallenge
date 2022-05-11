@@ -1,4 +1,5 @@
 ﻿using CompleteExample.Entities.DTOs;
+using CompleteExample.Entities;
 using CompleteExample.Logic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +25,24 @@ namespace CompleteExample.API.Controllers
         public ActionResult<IEnumerable<GradeDTO>> GetTopStudentsForAllCourses(int podiumSize = 3)
         {
             return _studentLogic.GetTopStudentsForAllCourses(podiumSize).ToArray();
+        }
+
+        //GET api/students/1
+        [HttpGet("{studentId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<Student> ReadStudent(int studentId)
+        {
+            var student = _studentLogic.GetById(studentId);
+
+            if (student != null)
+            {
+                return student;
+            }
+            else
+            {
+                return NotFound();
+            }
         }
     }
 }

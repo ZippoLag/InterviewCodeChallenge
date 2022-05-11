@@ -18,6 +18,7 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 
 * Update a grade(number) for a student for a course
 	- Implement Controller and Logic for updating a new Grade for a given CourseId on Student's Controller and Logic
+* Add missing Unit Tests for all classes within the Logic project
 * Stretch Goal: Modify the databse to allow for the storage of students' historical grades.
 	- Add Grade entity and update DB Schema
 	- Migrate Grades from Enrollment into Grade Table
@@ -38,13 +39,12 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 
 * For a particular instructor, list all the students' grades the instructor has given out
 * List all students that have the top 3 grades for each course
-	- Note: missing Unit Tests
 * Enroll a student in a course
-	- Note: missing Unit Tests
 
 
 ## Changelog (reverse order)
 
+- Implemented Read (GetById) Student
 - Improved API URIs
 - Modified Enrollment entity to accept null Grades to match with DB schema
 - Implemented Read Enrollment

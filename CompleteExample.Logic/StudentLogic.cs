@@ -15,6 +15,18 @@ namespace CompleteExample.Logic
         }
 
         /// <summary>
+        /// Gets a Student by its Id.
+        /// </summary>
+        /// <param name="studentId">Id of the requested Student</param>
+        /// <returns>The Student for the given Id</returns>
+        public Student GetById(int studentId)
+        {
+            var student = _context.Students.FirstOrDefault(s => s.StudentId == studentId);
+
+            return student;
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="podiumSize"></param>
