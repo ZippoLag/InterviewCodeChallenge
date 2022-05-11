@@ -15,22 +15,28 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 
 ## TO-DO:
 
-* For a particular instructor, list all the students' grades the instructor has given out
-	- Add InstructorLogicTest file and implement GetGivenStudentGrades UTs for cases:
-		1. Instructor has given at least one grade for one student
-		2. Instructor has no Course assigned
-		3. Instructor has Course assigned, but it doesn't have any enrolled students
-	- Add InstructorControllerTest file and implement Uts (TBD)
 * List all students that have the top 3 grades for each course
 * Enroll a student in a course
 * Update a grade(number) for a student for a course
 * Stretch Goal: Modify the databse to allow for the storage of students' historical grades.
 * Stretch Goal: Setup a postman collection that calls each one of the endpoints.
-* Stretch Refactor: add plural to "Enrollment" in CompleteExampleDBContext.cs
+* Personal stretch: add plural to "Enrollment" in CompleteExampleDBContext.cs
+* Personal stretch: replace hardcoded "LocalDevelopmentContext" on Startup.cs and Unit Tests with a setting
+* Personal stretch: replace real DB connection on Unit Tests with an in-memory context mock
+* Personal stretch: contemplate adding Controller Unit Tests
+
+
+# Done
+
+* For a particular instructor, list all the students' grades the instructor has given out
 
 
 ## Changelog (reverse order)
 
+- Add InstructorLogicTest file and implement GetGivenStudentGrades UTs for cases:
+	1. Instructor has given at least one grade for one student
+	2. Instructor has Course assigned, but it doesn't have any enrolled students
+	Note: there are no Courses without enrolled students in the DB
 - Implemented GradeDTO and reworked Controller and Logic
 - Add Instructor Logic and implement GetGivenStudentGrades method on Logic	
 - Add Instructor Controller and implement GivenStudentGrades GET Method on Controller 
@@ -38,4 +44,4 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 - Added new deafault connection string so we can work with windows authentication on localhost
 - Added this file, analyzed the given skeleton and planned-out what needs to be fleshed-out enough to get started
 - Installed SQL Server 2016 and tools (already had VS 2019 with .Net Core 3.1)
-- Analyze current project structure and task next steps
+- Analyzed current project structure and task next steps
