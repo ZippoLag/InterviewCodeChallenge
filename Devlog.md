@@ -16,8 +16,13 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 ## TO-DO:
 
 * List all students that have the top 3 grades for each course
-	- Implement UTs for GetTopStudentsForAllCourses
+	- Implement Unit Tests for GetTopStudentsForAllCourses
 * Enroll a student in a course
+	- Add Controller and Logic files for Enrollment
+	- Implement Read Enrollment
+	- Implement Create Enrollment
+	- Implement Unit Tests for Read Enrollment
+	- Implement Unit Tests for Create Enrollment
 * Update a grade(number) for a student for a course
 * Stretch Goal: Modify the databse to allow for the storage of students' historical grades.
 * Stretch Goal: Setup a postman collection that calls each one of the endpoints.
