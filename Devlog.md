@@ -18,9 +18,6 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 * List all students that have the top 3 grades for each course
 	- Implement Unit Tests for GetTopStudentsForAllCourses
 * Enroll a student in a course
-	- Add Controller and Logic files for Enrollment
-	- Implement Read Enrollment
-	- Implement Create Enrollment
 	- Implement Unit Tests for Read Enrollment
 	- Implement Unit Tests for Create Enrollment
 * Update a grade(number) for a student for a course
@@ -40,6 +37,10 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 
 ## Changelog (reverse order)
 
+- Modified Enrollment entity to accept null Grades to match with DB schema
+- Implemented Read Enrollment
+- Implemented Create Enrollment
+- Add Controller and Logic files for Enrollment
 - Add Controller and Logic files for Students with a "GetTopStudentsForAllCourses" endpoint which has "3" as default parameter
 - Add InstructorLogicTest file and implement GetGivenStudentGrades UTs for cases:
 	1. Instructor has given at least one grade for one student

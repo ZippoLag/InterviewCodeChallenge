@@ -44,6 +44,7 @@ namespace CompleteExample.API
             });
 
             //Setting up Dependency Injection resolvers
+            services.AddScoped<IEnrollmentLogic, EnrollmentLogic>();
             services.AddScoped<IInstructorLogic, InstructorLogic>();
             services.AddScoped<IStudentLogic, StudentLogic>();
         }

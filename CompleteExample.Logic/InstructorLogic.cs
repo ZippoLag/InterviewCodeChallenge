@@ -34,7 +34,7 @@ namespace CompleteExample.Logic
                              Course = c.Title, 
                              StudentId = s.StudentId, 
                              Student = $"{s.LastName}, {s.FirstName}",
-                             Grade = e.Grade
+                             Grade = (decimal)e.Grade
                          };
 
             return grades;

@@ -4,16 +4,16 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace CompleteExample.Entities
+namespace CompleteExample.Entities.DTOs
 {
-    public class Enrollment
+    [NotMapped]
+    public class EnrollmentDTO
     {
-        [Key]
-        public int EnrollmentId { get; set; }
-        [ForeignKey("StudentId")]
+        public int? EnrollmentId { get; set; }
         public int StudentId { get; set; }
-        [ForeignKey("CourseId")]
+        public string Student { get; set; }
         public int CourseId { get; set; }
-        public Decimal? Grade { get; set; }
+        public string Course { get; set; }
+
     }
 }
