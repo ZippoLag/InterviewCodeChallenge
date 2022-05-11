@@ -4,11 +4,11 @@ Not that this is any kind of usual practice, but I usually keep some kind of "TO
 
 # Design Choices
 
-It's always tempting to over-engineer a solution in hopes to appear clever, but given the fact I have little time to complete this exercise I will try and repeat "Premature Optimization is the Root of All Evil" as a mantra (OK, it's not the same, but close enough). As such, I won't be, for example adding a "Service" Project to sit between the Controller and Logic projects, instead the Logic layer will serve DTOs ready for the consumption by the Controller, and the Controller will deal only with parsing, handling errors and such (possibly in a Middleware if I have the time). 
+It's always tempting to over-engineer a solution in hopes to appear clever, but given the fact I have little time to complete this exercise I will try and use the given boilerplate as guidance of what's expected to be fleshed-out and how.
 
 In a similar note, I also felt compelled to write all CRUD operations for the given entities, but for starters I'll limit myself to what's actually being asked for in the description. There's no "simple" way to implement just some HatEoAS support, so I'll declare it out of scope.
 
-TBH I've spent most of my career maintaining (often uglily architected) legacy applications, so I've never had the chance to work in a TDD fashion, but I'll try to keep UTs in mind as much as possible for this exercise.
+As I've spent most of my career maintaining (often uglily architected) legacy applications, I've never had the chance to work in a TDD fashion, but I'll try to keep UTs in mind as much as possible for this exercise.
 
 I've also foregone the need for Interfaces where they weren't crucial. I'll probably won't be needing Automapper either, though I'll probably use Swagger to ease endpoint testing before installing Postman. I'm not implementing Logging for now (though I may at the very least use dependency injection to grab an ILogger if needed).
 
@@ -16,15 +16,17 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 ## TO-DO:
 
 * List all students that have the top 3 grades for each course
+	- Implement UTs for GetTopStudentsForAllCourses
 * Enroll a student in a course
 * Update a grade(number) for a student for a course
 * Stretch Goal: Modify the databse to allow for the storage of students' historical grades.
 * Stretch Goal: Setup a postman collection that calls each one of the endpoints.
+* Personal stretch: add error-handling middleware for all endpoints
 * Personal stretch: add plural to "Enrollment" in CompleteExampleDBContext.cs
 * Personal stretch: replace hardcoded "LocalDevelopmentContext" on Startup.cs and Unit Tests with a setting
 * Personal stretch: replace real DB connection on Unit Tests with an in-memory context mock
 * Personal stretch: contemplate adding Controller Unit Tests
-
+* Personal stretch: increase GetTopStudentsForAllCourses in StudentLogic.cs
 
 # Done
 
@@ -33,6 +35,7 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 
 ## Changelog (reverse order)
 
+- Add Controller and Logic files for Students with a "GetTopStudentsForAllCourses" endpoint which has "3" as default parameter
 - Add InstructorLogicTest file and implement GetGivenStudentGrades UTs for cases:
 	1. Instructor has given at least one grade for one student
 	2. Instructor has Course assigned, but it doesn't have any enrolled students

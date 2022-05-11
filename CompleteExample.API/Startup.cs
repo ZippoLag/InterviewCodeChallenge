@@ -45,6 +45,7 @@ namespace CompleteExample.API
 
             //Setting up Dependency Injection resolvers
             services.AddScoped<IInstructorLogic, InstructorLogic>();
+            services.AddScoped<IStudentLogic, StudentLogic>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
