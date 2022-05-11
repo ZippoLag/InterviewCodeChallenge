@@ -21,7 +21,12 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 	- Implement Unit Tests for Read Enrollment
 	- Implement Unit Tests for Create Enrollment
 * Update a grade(number) for a student for a course
+	- Implement Controller and Logic for updating a new Grade for a given CourseId on Student's Controller and Logic
 * Stretch Goal: Modify the databse to allow for the storage of students' historical grades.
+	- Add Grade entity and update DB Schema
+	- Migrate Grades from Enrollment into Grade Table
+	- Update all Controllers and Logic methods that deal with GradeDTO and the Grade property from Enrollment so they now relate to the Grade table
+	- Remove Grade from Enrollment entity and update DB Schema
 * Stretch Goal: Setup a postman collection that calls each one of the endpoints.
 * Personal stretch: add error-handling middleware for all endpoints
 * Personal stretch: add plural to "Enrollment" in CompleteExampleDBContext.cs
