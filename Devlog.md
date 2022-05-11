@@ -1,6 +1,7 @@
 # Intro
 
-Not that this is any kind of usual practice, but I usually keep some kind of "TO-DO" file in my local machine that never sees the light of day, but since it's been a day I've done a "personal" project I'll allow myself to leave a mix of changelog and to-do list over here.
+I usually keep some kind of private "TO-DO" file in my local machine, in this case I will use this file to keep track of my reasoning behind design choices as well as to have an order of priorities on what to work on.
+
 
 # Design Choices
 
@@ -15,11 +16,6 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 
 ## TO-DO:
 
-* List all students that have the top 3 grades for each course
-	- Implement Unit Tests for GetTopStudentsForAllCourses
-* Enroll a student in a course
-	- Implement Unit Tests for Read Enrollment
-	- Implement Unit Tests for Create Enrollment
 * Update a grade(number) for a student for a course
 	- Implement Controller and Logic for updating a new Grade for a given CourseId on Student's Controller and Logic
 * Stretch Goal: Modify the databse to allow for the storage of students' historical grades.
@@ -29,15 +25,22 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 	- Remove Grade from Enrollment entity and update DB Schema
 * Stretch Goal: Setup a postman collection that calls each one of the endpoints.
 * Personal stretch: add error-handling middleware for all endpoints
-* Personal stretch: add plural to "Enrollment" in CompleteExampleDBContext.cs
+* Personal stretch: rename "Enrollment" to be plural in CompleteExampleDBContext.cs and DB Schema
 * Personal stretch: replace hardcoded "LocalDevelopmentContext" on Startup.cs and Unit Tests with a setting
 * Personal stretch: replace real DB connection on Unit Tests with an in-memory context mock
 * Personal stretch: contemplate adding Controller Unit Tests
 * Personal stretch: increase GetTopStudentsForAllCourses in StudentLogic.cs
+* Personal stretch: implement Read operations for all Entities (GetById and GetAll)
+* Personal stretch: implement pagination and filtering for GetAll operations
+
 
 # Done
 
 * For a particular instructor, list all the students' grades the instructor has given out
+* List all students that have the top 3 grades for each course
+	- Note: missing Unit Tests
+* Enroll a student in a course
+	- Note: missing Unit Tests
 
 
 ## Changelog (reverse order)
