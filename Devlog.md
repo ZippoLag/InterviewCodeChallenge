@@ -17,6 +17,7 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 ## TO-DO:
 
 * Update a grade(number) for a student for a course
+	- Implement Controller and Logic for getting a Student's Grades for a given CourseId
 	- Implement Controller and Logic for updating a new Grade for a given CourseId on Student's Controller and Logic
 * Add missing Unit Tests for all classes within the Logic project
 * Stretch Goal: Modify the databse to allow for the storage of students' historical grades.
@@ -30,7 +31,7 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 * Personal stretch: replace hardcoded "LocalDevelopmentContext" on Startup.cs and Unit Tests with a setting
 * Personal stretch: replace real DB connection on Unit Tests with an in-memory context mock
 * Personal stretch: contemplate adding Controller Unit Tests
-* Personal stretch: increase GetTopStudentsForAllCourses in StudentLogic.cs
+* Personal stretch: increase GetTopStudentGradesForAllCourses in StudentLogic.cs
 * Personal stretch: implement Read operations for all Entities (GetById and GetAll)
 * Personal stretch: implement pagination and filtering for GetAll operations
 
@@ -44,13 +45,14 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 
 ## Changelog (reverse order)
 
+- Implement Controller and Logic for getting all of a Student's Grades
 - Implemented Read (GetById) Student
 - Improved API URIs
 - Modified Enrollment entity to accept null Grades to match with DB schema
 - Implemented Read Enrollment
 - Implemented Create Enrollment
 - Add Controller and Logic files for Enrollment
-- Add Controller and Logic files for Students with a "GetTopStudentsForAllCourses" endpoint which has "3" as default parameter
+- Add Controller and Logic files for Students with a "GetTopStudentGradesForAllCourses" endpoint which has "3" as default parameter
 - Add InstructorLogicTest file and implement GetGivenStudentGrades UTs for cases:
 	1. Instructor has given at least one grade for one student
 	2. Instructor has Course assigned, but it doesn't have any enrolled students

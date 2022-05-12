@@ -7,6 +7,8 @@ namespace CompleteExample.Logic
     public interface IStudentLogic
     {
         public Student GetById(int studentId);
-        public IEnumerable<GradeDTO> GetTopStudentsForAllCourses(int podiumSize);
+        public IEnumerable<GradeDTO> GetTopStudentGradesForAllCourses(int podiumSize);
+
+        public IEnumerable<GradeDTO> GetGradesForStudent(int studentId); 
     }
 }

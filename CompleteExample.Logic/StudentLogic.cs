@@ -27,11 +27,36 @@ namespace CompleteExample.Logic
         }
 
         /// <summary>
+        /// Gets all the Grades given for a Student in all of their Enrolled Courses
+        /// </summary>
+        /// <param name="studentId"></param>
+        /// <returns></returns>
+        public IEnumerable<GradeDTO> GetGradesForStudent(int studentId)
+        {
+            var studentGrades = from e in _context.Enrollment
+                                join s in _context.Students
+                                  on e.StudentId equals s.StudentId
+                                join c in _context.Courses
+                                     on e.CourseId equals c.CourseId
+                                where e.StudentId == studentId
+                                select new GradeDTO()
+                                {
+                                    CourseId = c.CourseId,
+                                    Course = c.Title,
+                                    StudentId = s.StudentId,
+                                    Student = $"{s.LastName}, {s.FirstName}",
+                                    Grade = (decimal)e.Grade
+                                };
+
+            return studentGrades;
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="podiumSize"></param>
         /// <returns>A flat list of all the top podiumSize grades ordered by Course</returns>
-        public IEnumerable<GradeDTO> GetTopStudentsForAllCourses(int podiumSize)
+        public IEnumerable<GradeDTO> GetTopStudentGradesForAllCourses(int podiumSize)
         {
             List<GradeDTO> topGrades = new List<GradeDTO>();
 

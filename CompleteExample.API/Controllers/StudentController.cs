@@ -22,9 +22,9 @@ namespace CompleteExample.API.Controllers
         //GET api/students/top-students/3
         [HttpGet("top-students/{podiumSize?}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<IEnumerable<GradeDTO>> GetTopStudentsForAllCourses(int podiumSize = 3)
+        public ActionResult<IEnumerable<GradeDTO>> GetTopStudentGradesForAllCourses(int podiumSize = 3)
         {
-            return _studentLogic.GetTopStudentsForAllCourses(podiumSize).ToArray();
+            return _studentLogic.GetTopStudentGradesForAllCourses(podiumSize).ToArray();
         }
 
         //GET api/students/1
@@ -43,6 +43,15 @@ namespace CompleteExample.API.Controllers
             {
                 return NotFound();
             }
+        }
+
+        //GET api/students/1/enrolled-course-grades
+        [HttpGet("{studentId}/enrolled-course-grades")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<IEnumerable<GradeDTO>> GetGradesForStudent(int studentId)
+        {
+            return _studentLogic.GetGradesForStudent(studentId).ToArray();
         }
     }
 }
