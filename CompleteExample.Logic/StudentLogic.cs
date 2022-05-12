@@ -2,6 +2,7 @@
 using CompleteExample.Entities.DTOs;
 using System.Linq;
 using System.Collections.Generic;
+using System;
 
 namespace CompleteExample.Logic
 {
@@ -75,6 +76,31 @@ namespace CompleteExample.Logic
                                 };
 
             return studentGrades;
+        }
+
+        public GradeDTO UpdateStudentGrade(int studentId, int courseId, decimal newGrade)
+        {
+            var enrollment = _context.Enrollment.FirstOrDefault(e => e.StudentId == studentId && e.CourseId == courseId);
+
+            if (enrollment == null)
+            {
+                throw new InvalidOperationException($"The Student with Id {studentId} is not currently Enrolled in the given Course with Id {courseId}.");
+            }
+
+            enrollment.Grade = newGrade;
+            _context.SaveChanges();
+
+            var enrolledCourse = _context.Courses.FirstOrDefault(c => c.CourseId == enrollment.CourseId);
+            var enrolledStudent = _context.Students.FirstOrDefault(s => s.StudentId == enrollment.StudentId);
+
+            return new GradeDTO()
+            {
+                CourseId = enrollment.CourseId,
+                Course = enrolledCourse.Title,
+                StudentId = enrollment.StudentId,
+                Student = $"{enrolledStudent.LastName}, {enrolledStudent.FirstName}",
+                Grade = (decimal)enrollment.Grade
+            };
         }
 
         /// <summary>

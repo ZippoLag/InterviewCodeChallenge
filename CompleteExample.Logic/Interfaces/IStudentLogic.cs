@@ -9,6 +9,7 @@ namespace CompleteExample.Logic
         public Student GetById(int studentId);
         public IEnumerable<GradeDTO> GetTopStudentGradesForAllCourses(int podiumSize);
         public IEnumerable<GradeDTO> GetGradesForStudent(int studentId);
-        public IEnumerable<GradeDTO> GetGradesForStudentByCourse(int studentId, int courseId);        
+        public IEnumerable<GradeDTO> GetGradesForStudentByCourse(int studentId, int courseId);
+        public GradeDTO UpdateStudentGrade(int studentId, int courseId, decimal newGrade);        
     }
 }

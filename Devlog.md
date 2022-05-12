@@ -16,8 +16,9 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 
 ## TO-DO:
 
-* Update a grade(number) for a student for a course
-	- Implement Controller and Logic for updating a new Grade for a given CourseId on Student's Controller and Logic
+* Refactor / reduce self-assed technical debt:
+	- Apply consistent code formatting to project, specially linq queries
+	- Reduce code repetition, specially linq queries
 * Add missing Unit Tests for all classes within the Logic project
 * Stretch Goal: Modify the databse to allow for the storage of students' historical grades.
 	- Add Grade entity and update DB Schema
@@ -40,10 +41,12 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 * For a particular instructor, list all the students' grades the instructor has given out
 * List all students that have the top 3 grades for each course
 * Enroll a student in a course
+* Update a grade(number) for a student for a course
 
 
 ## Changelog (reverse order)
 
+- Implement Controller and Logic for updating a new Grade for a given CourseId on Student's Controller and Logic
 - Implement Controller and Logic for getting a Student's Grades for a given CourseId
 - Implement Controller and Logic for getting all of a Student's Grades
 - Implemented Read (GetById) Student

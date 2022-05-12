@@ -58,9 +58,18 @@ namespace CompleteExample.API.Controllers
         [HttpGet("{studentId}/enrolled-course-grades/{courseId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<IEnumerable<GradeDTO>> GetGradesForStudent(int studentId, int courseId)
+        public ActionResult<IEnumerable<GradeDTO>> GetGradesForStudentByCourse(int studentId, int courseId)
         {
             return _studentLogic.GetGradesForStudentByCourse(studentId, courseId).ToArray();
+        }
+
+        //PATCH api/students/1/enrolled-course-grades/4
+        [HttpPatch("{studentId}/enrolled-course-grades/{courseId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<GradeDTO> UpdateStudentGrade(int studentId, int courseId, [FromBody] decimal newGrade)
+        {
+            return _studentLogic.UpdateStudentGrade(studentId, courseId, newGrade);
         }
     }
 }
