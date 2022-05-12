@@ -52,6 +52,32 @@ namespace CompleteExample.Logic
         }
 
         /// <summary>
+        /// Gets all the Grades given for a Student for one of their Enrolled Courses
+        /// </summary>
+        /// <param name="studentId"></param>
+        /// <param name="courseId"></param>
+        /// <returns></returns>
+        public IEnumerable<GradeDTO> GetGradesForStudentByCourse(int studentId, int courseId)
+        {
+            var studentGrades = from e in _context.Enrollment
+                                join s in _context.Students
+                                  on e.StudentId equals s.StudentId
+                                join c in _context.Courses
+                                     on e.CourseId equals c.CourseId
+                                where e.StudentId == studentId && e.CourseId == courseId
+                                select new GradeDTO()
+                                {
+                                    CourseId = c.CourseId,
+                                    Course = c.Title,
+                                    StudentId = s.StudentId,
+                                    Student = $"{s.LastName}, {s.FirstName}",
+                                    Grade = (decimal)e.Grade
+                                };
+
+            return studentGrades;
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="podiumSize"></param>

@@ -53,5 +53,14 @@ namespace CompleteExample.API.Controllers
         {
             return _studentLogic.GetGradesForStudent(studentId).ToArray();
         }
+
+        //GET api/students/1/enrolled-course-grades/4
+        [HttpGet("{studentId}/enrolled-course-grades/{courseId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<IEnumerable<GradeDTO>> GetGradesForStudent(int studentId, int courseId)
+        {
+            return _studentLogic.GetGradesForStudentByCourse(studentId, courseId).ToArray();
+        }
     }
 }

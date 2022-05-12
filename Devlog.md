@@ -17,7 +17,6 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 ## TO-DO:
 
 * Update a grade(number) for a student for a course
-	- Implement Controller and Logic for getting a Student's Grades for a given CourseId
 	- Implement Controller and Logic for updating a new Grade for a given CourseId on Student's Controller and Logic
 * Add missing Unit Tests for all classes within the Logic project
 * Stretch Goal: Modify the databse to allow for the storage of students' historical grades.
@@ -45,6 +44,7 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 
 ## Changelog (reverse order)
 
+- Implement Controller and Logic for getting a Student's Grades for a given CourseId
 - Implement Controller and Logic for getting all of a Student's Grades
 - Implemented Read (GetById) Student
 - Improved API URIs
