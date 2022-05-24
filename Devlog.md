@@ -19,6 +19,8 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 * Refactor / reduce self-assed technical debt:
 	- Apply consistent code formatting to project, specially linq queries
 	- Reduce code repetition, specially linq queries
+	- Evaluate applying CQRS strategies
+	- Evaluate applying other design patterns wherever possible
 * Add missing Unit Tests for all classes within the Logic project
 * Stretch Goal: Modify the databse to allow for the storage of students' historical grades.
 	- Add Grade entity and update DB Schema
@@ -34,6 +36,7 @@ I've also foregone the need for Interfaces where they weren't crucial. I'll prob
 * Personal stretch: increase GetTopStudentGradesForAllCourses in StudentLogic.cs
 * Personal stretch: implement Read operations for all Entities (GetById and GetAll)
 * Personal stretch: implement pagination and filtering for GetAll operations
+* Personal stretch: implement security login / auth / user profiles (Student, Teacher, Admin?)
 
 
 # Done
